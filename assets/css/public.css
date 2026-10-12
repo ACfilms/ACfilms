@@ -762,7 +762,7 @@ section.reveal.is-visible .wrap .contact-intro > h2::after {
 }
 
 .faq details[open] summary::after {
-    content: "âˆ’";
+    content: "-";
 }
 
 .faq details[open] summary {
