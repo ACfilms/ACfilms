@@ -72,29 +72,31 @@
         <div class="wrap showreel-wrap">
           <div class="showreel-heading">
             <div>
-              <p class="eyebrow">Featured Film</p>
-              <h2>A Pre-Debut Film of JEWEL</h2>
+              <p class="eyebrow">Featured Teaser</p>
+              <h2>A Pre-Debut teaser of JEWEL</h2>
             </div>
-            <span class="showreel-side-note">Featured Story <i>/</i> Pre-Debut Film</span>
+            <span class="showreel-side-note">Featured Story <i>/</i> Pre-Debut teaser</span>
           </div>
           <div class="showreel-card">
             <div class="showreel-thumb">
               <video
                 id="jewel-showreel-video"
                 class="showreel-video jewel-autoplay"
+                aria-label="A Pre-Debut teaser of JEWEL"
                 muted
                 playsinline
                 webkit-playsinline
                 preload="metadata"
                 controls
               >
-                <source src="assets/videos/jewel-predebut.mp4" type="video/mp4" />
+                <source src="assets/videos/jewel%20teaser.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button
                 type="button"
                 class="jewel-sound-toggle"
                 aria-controls="jewel-showreel-video"
+                aria-label="Enable sound for A Pre-Debut teaser of JEWEL"
                 hidden
               >
                 <svg
@@ -907,112 +909,79 @@
       <section id="photography" class="reveal" aria-labelledby="photography-heading">
         <span class="section-divider" aria-hidden="true"></span>
         <div class="wrap">
-          <p class="eyebrow">PRE-WEDDING, PRE-DEBUT &amp; DEBUT</p>
-          <h2 id="photography-heading">Photography</h2>
-          <p class="sub">Pre-Wedding, Pre-Debut &amp; Debut Photography</p>
-          <div class="photography-filters" role="group" aria-label="Filter photographs" hidden>
-            <button type="button" class="photography-filter" data-photo-filter="all" aria-pressed="true" aria-controls="photography-grid">All Photos</button>
-            <button type="button" class="photography-filter" data-photo-filter="pre-wedding" aria-pressed="false" aria-controls="photography-grid">Pre-Wedding</button>
-            <button type="button" class="photography-filter" data-photo-filter="pre-debut" aria-pressed="false" aria-controls="photography-grid">Pre-Debut</button>
-            <button type="button" class="photography-filter" data-photo-filter="debut" aria-pressed="false" aria-controls="photography-grid">Debut</button>
+          <div class="photography-heading">
+            <h2 id="photography-heading">Photography</h2>
           </div>
-          <p class="photography-results" aria-live="polite" aria-atomic="true" hidden>9 photographs</p>
-          <div id="photography-grid" class="photography-grid">
+          <div class="photography-toolbar">
+            <div class="photography-filters" role="group" aria-label="Filter photographs" hidden>
+              <button type="button" class="photography-filter" data-photo-filter="all" aria-pressed="true" aria-controls="photography-grid">All Photos</button>
+              <button type="button" class="photography-filter" data-photo-filter="wedding" aria-pressed="false" aria-controls="photography-grid">Wedding</button>
+              <button type="button" class="photography-filter" data-photo-filter="pre-wedding" aria-pressed="false" aria-controls="photography-grid">Pre-Wedding</button>
+              <button type="button" class="photography-filter" data-photo-filter="pre-debut" aria-pressed="false" aria-controls="photography-grid">Pre-Debut</button>
+              <button type="button" class="photography-filter" data-photo-filter="debut" aria-pressed="false" aria-controls="photography-grid">Debut</button>
+            </div>
+            <p class="photography-results sr-only" aria-live="polite" aria-atomic="true" hidden>12 photographs</p>
+          </div>
+          <div id="photography-grid" class="photography-grid" data-photo-count="12">
             <a
               class="photography-card"
-              data-photo-category="pre-debut"
-              href="assets/img/photography/498554145_1277653104368956_3879855569567225391_n.jpg"
-              aria-label="View Pre-Debut Photography: garden portrait in the photo viewer"
+              data-photo-category="wedding"
+              href="assets/img/photography/wedding/500271272_1286866360114297_7561926703835363107_n.jpg"
+              aria-label="View Wedding Photography: at the altar in the photo viewer"
             >
-              <img
-                src="assets/img/photography/498554145_1277653104368956_3879855569567225391_n.jpg"
-                alt="Pre-Debut portrait of a woman in a pink gown standing in a garden"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Debut</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/wedding/500271272_1286866360114297_7561926703835363107_n.jpg"
+                  alt="Bride and groom during their wedding ceremony at a gold church altar"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                  style="object-position: 50% 35%"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Wedding</span>
             </a>
             <a
               class="photography-card"
-              data-photo-category="pre-debut"
-              href="assets/img/photography/505782617_1301100495357550_287429791839089631_n.jpg"
-              aria-label="View Pre-Debut Photography: window portrait in the photo viewer"
+              data-photo-category="wedding"
+              href="assets/img/photography/wedding/497503254_1271907484943518_224802755729107050_n.jpg"
+              aria-label="View Wedding Photography: beneath the blooms in the photo viewer"
             >
-              <img
-                src="assets/img/photography/505782617_1301100495357550_287429791839089631_n.jpg"
-                alt="Pre-Debut portrait of a woman in a pale pink gown beside an open window"
-                width="2000"
-                height="1333"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Debut</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/wedding/497503254_1271907484943518_224802755729107050_n.jpg"
+                  alt="Bride and groom standing beneath a white floral wedding arch"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                  style="object-position: 50% 60%"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Wedding</span>
             </a>
             <a
               class="photography-card"
-              data-photo-category="pre-debut"
-              href="assets/img/photography/515436156_1322126726588260_793345752169365678_n.jpg"
-              aria-label="View Pre-Debut Photography: staircase portrait in the photo viewer"
+              data-photo-category="wedding"
+              href="assets/img/photography/wedding/496846234_1274395631361370_6871234392159522594_n.jpg"
+              aria-label="View Wedding Photography: together, always in the photo viewer"
             >
-              <img
-                src="assets/img/photography/515436156_1322126726588260_793345752169365678_n.jpg"
-                alt="Pre-Debut portrait of a woman in a purple gown on illuminated steps at dusk"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Debut</span>
-            </a>
-            <a
-              class="photography-card"
-              data-photo-category="debut"
-              href="assets/img/photography/debut/497779635_1275909354543331_961996172494924918_n.jpg"
-              aria-label="View Debut Photography: blue gown celebration portrait in the photo viewer"
-            >
-              <img
-                src="assets/img/photography/debut/497779635_1275909354543331_961996172494924918_n.jpg"
-                alt="Debut portrait of a woman in a blue gown surrounded by flowers and hanging lights"
-                width="417"
-                height="278"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Debut</span>
-            </a>
-            <a
-              class="photography-card"
-              data-photo-category="debut"
-              href="assets/img/photography/debut/503123696_1289673213166945_5070466503969779677_n.jpg"
-              aria-label="View Debut Photography: beaded dress portrait in the photo viewer"
-            >
-              <img
-                src="assets/img/photography/debut/503123696_1289673213166945_5070466503969779677_n.jpg"
-                alt="Debut portrait of a smiling woman in a dark beaded dress under green and gold lights"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Debut</span>
-            </a>
-            <a
-              class="photography-card"
-              data-photo-category="debut"
-              href="assets/img/photography/debut/560589531_1438789891588609_2490616526854089777_n.jpg"
-              aria-label="View Debut Photography: pink gown celebration portrait in the photo viewer"
-            >
-              <img
-                src="assets/img/photography/debut/560589531_1438789891588609_2490616526854089777_n.jpg"
-                alt="Debut portrait of a woman in a pink gown among flowers beneath gold drapes and spotlights"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Debut</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/wedding/496846234_1274395631361370_6871234392159522594_n.jpg"
+                  alt="Bride and groom facing each other in front of carved wooden church doors"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                  style="object-position: 50% 75%"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Wedding</span>
             </a>
             <a
               class="photography-card"
@@ -1020,15 +989,18 @@
               href="assets/img/photography/pre-wedding/494201487_1257351966399070_269187317949542167_n.jpg"
               aria-label="View Pre-Wedding Photography: garden walkway portrait in the photo viewer"
             >
-              <img
-                src="assets/img/photography/pre-wedding/494201487_1257351966399070_269187317949542167_n.jpg"
-                alt="Pre-Wedding portrait of a smiling couple in cream clothing walking beside a white garden fence"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Wedding</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/pre-wedding/494201487_1257351966399070_269187317949542167_n.jpg"
+                  alt="Pre-Wedding portrait of a smiling couple in cream clothing walking beside a white garden fence"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Wedding</span>
             </a>
             <a
               class="photography-card"
@@ -1036,15 +1008,18 @@
               href="assets/img/photography/pre-wedding/508427386_1306636211470645_1365356358985909202_n.jpg"
               aria-label="View Pre-Wedding Photography: stone staircase portrait in the photo viewer"
             >
-              <img
-                src="assets/img/photography/pre-wedding/508427386_1306636211470645_1365356358985909202_n.jpg"
-                alt="Pre-Wedding portrait of a couple in white clothing on stone steps, with the woman holding a small bouquet"
-                width="2000"
-                height="1333"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Wedding</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/pre-wedding/508427386_1306636211470645_1365356358985909202_n.jpg"
+                  alt="Pre-Wedding portrait of a couple in white clothing on stone steps, with the woman holding a small bouquet"
+                  width="2000"
+                  height="1333"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Wedding</span>
             </a>
             <a
               class="photography-card"
@@ -1052,15 +1027,228 @@
               href="assets/img/photography/pre-wedding/610723240_1499253498875581_7142153486499536524_n.jpg"
               aria-label="View Pre-Wedding Photography: cottage lane portrait in the photo viewer"
             >
-              <img
-                src="assets/img/photography/pre-wedding/610723240_1499253498875581_7142153486499536524_n.jpg"
-                alt="Pre-Wedding portrait of a couple in brown tops holding hands on a lane beside white cottages and greenery"
-                width="2048"
-                height="1365"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="photography-category">Pre-Wedding</span>
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/pre-wedding/610723240_1499253498875581_7142153486499536524_n.jpg"
+                  alt="Pre-Wedding portrait of a couple in brown tops holding hands on a lane beside white cottages and greenery"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Wedding</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="pre-debut"
+              href="assets/img/photography/498554145_1277653104368956_3879855569567225391_n.jpg"
+              aria-label="View Pre-Debut Photography: garden portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/498554145_1277653104368956_3879855569567225391_n.jpg"
+                  alt="Pre-Debut portrait of a woman in a pink gown standing in a garden"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Debut</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="pre-debut"
+              href="assets/img/photography/505782617_1301100495357550_287429791839089631_n.jpg"
+              aria-label="View Pre-Debut Photography: window portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/505782617_1301100495357550_287429791839089631_n.jpg"
+                  alt="Pre-Debut portrait of a woman in a pale pink gown beside an open window"
+                  width="2000"
+                  height="1333"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Debut</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="pre-debut"
+              href="assets/img/photography/515436156_1322126726588260_793345752169365678_n.jpg"
+              aria-label="View Pre-Debut Photography: staircase portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/515436156_1322126726588260_793345752169365678_n.jpg"
+                  alt="Pre-Debut portrait of a woman in a purple gown on illuminated steps at dusk"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Pre-Debut</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="debut"
+              href="assets/img/photography/debut/497779635_1275909354543331_961996172494924918_n.jpg"
+              aria-label="View Debut Photography: blue gown celebration portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/debut/497779635_1275909354543331_961996172494924918_n.jpg"
+                  alt="Debut portrait of a woman in a blue gown surrounded by flowers and hanging lights"
+                  width="417"
+                  height="278"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Debut</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="debut"
+              href="assets/img/photography/debut/503123696_1289673213166945_5070466503969779677_n.jpg"
+              aria-label="View Debut Photography: beaded dress portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/debut/503123696_1289673213166945_5070466503969779677_n.jpg"
+                  alt="Debut portrait of a smiling woman in a dark beaded dress under green and gold lights"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Debut</span>
+            </a>
+            <a
+              class="photography-card"
+              data-photo-category="debut"
+              href="assets/img/photography/debut/560589531_1438789891588609_2490616526854089777_n.jpg"
+              aria-label="View Debut Photography: pink gown celebration portrait in the photo viewer"
+            >
+              <div class="photography-image">
+                <img
+                  src="assets/img/photography/debut/560589531_1438789891588609_2490616526854089777_n.jpg"
+                  alt="Debut portrait of a woman in a pink gown among flowers beneath gold drapes and spotlights"
+                  width="2048"
+                  height="1365"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="photography-view" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 5h11v11M19 5 5 19" /></svg></span>
+              </div>
+              <span class="photography-category" hidden>Debut</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="photobooth" class="reveal" aria-labelledby="photobooth-heading">
+        <span class="section-divider" aria-hidden="true"></span>
+        <div class="wrap">
+          <div class="photobooth-heading">
+            <h2 id="photobooth-heading">Photobooth</h2>
+          </div>
+          <div class="photobooth-grid">
+            <a
+              class="photobooth-card"
+              href="assets/img/photography/photobooth/749459300_1693099976157598_3610681154223056635_n.jpg"
+              aria-label="View Photobooth sample: wedding collage with a pink rose backdrop in the photo viewer"
+            >
+              <div class="photobooth-image">
+                <img
+                  src="assets/img/photography/photobooth/749459300_1693099976157598_3610681154223056635_n.jpg"
+                  alt="Wedding photobooth collage with newlyweds against a pink rose backdrop"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="photobooth-category" hidden>Photobooth</span>
+            </a>
+            <a
+              class="photobooth-card"
+              href="assets/img/photography/photobooth/798729218_1743164617817800_8441084786954888308_n.jpg"
+              aria-label="View Photobooth sample: Pokemon-themed birthday collage in the photo viewer"
+            >
+              <div class="photobooth-image">
+                <img
+                  src="assets/img/photography/photobooth/798729218_1743164617817800_8441084786954888308_n.jpg"
+                  alt="Pokemon-themed first birthday photobooth collage with family portraits"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="photobooth-category" hidden>Photobooth</span>
+            </a>
+            <a
+              class="photobooth-card"
+              href="assets/img/photography/photobooth/818133312_1760814466052815_5040034041745982144_n.jpg"
+              aria-label="View Photobooth sample: floral wedding collage in the photo viewer"
+            >
+              <div class="photobooth-image">
+                <img
+                  src="assets/img/photography/photobooth/818133312_1760814466052815_5040034041745982144_n.jpg"
+                  alt="Floral wedding photobooth collage with newlyweds showing their rings"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="photobooth-category" hidden>Photobooth</span>
+            </a>
+            <a
+              class="photobooth-card"
+              href="assets/img/photography/photobooth/520101682_1337386171728982_1895961347957598200_n.jpg"
+              aria-label="View Photobooth sample: floral debut print in the photo viewer"
+            >
+              <div class="photobooth-image">
+                <img
+                  src="assets/img/photography/photobooth/520101682_1337386171728982_1895961347957598200_n.jpg"
+                  alt="Floral debut photobooth print with portraits of a woman in a blue gown"
+                  width="1240"
+                  height="1840"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="photobooth-category" hidden>Photobooth</span>
+            </a>
+            <a
+              class="photobooth-card"
+              href="assets/img/photography/photobooth/597281575_1480762467391351_6055219861855020536_n.jpg"
+              aria-label="View Photobooth sample: newspaper-themed debut strips in the photo viewer"
+            >
+              <div class="photobooth-image">
+                <img
+                  src="assets/img/photography/photobooth/597281575_1480762467391351_6055219861855020536_n.jpg"
+                  alt="Newspaper-themed debut photobooth strips with portraits of a woman in a white gown"
+                  width="1200"
+                  height="1792"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="photobooth-category" hidden>Photobooth</span>
             </a>
           </div>
         </div>
