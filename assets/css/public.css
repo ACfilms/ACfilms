@@ -752,17 +752,34 @@ section.reveal.is-visible .wrap .contact-intro > h2::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+}
+
+.faq summary::marker {
+    content: "";
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
 }
 
 .faq summary::after {
-    content: "+";
-    font-size: 1.2rem;
+    content: "";
+    display: block;
+    flex: 0 0 1rem;
+    width: 1rem;
+    height: 1rem;
     color: var(--gold-hi);
-    font-weight: 700;
+    background-image: linear-gradient(currentColor, currentColor),
+        linear-gradient(currentColor, currentColor);
+    background-position: center;
+    background-size: 1rem 2px, 2px 1rem;
+    background-repeat: no-repeat;
 }
 
 .faq details[open] summary::after {
-    content: "-";
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 1rem 2px;
 }
 
 .faq details[open] summary {
@@ -4301,55 +4318,64 @@ body {
     }
 }
 
-/* Standalone Photography gallery; existing video and category grids are untouched. */
+/* Photography: a quiet editorial collection, independent of the video gallery. */
 #photography {
     position: relative;
     isolation: isolate;
     border-top-color: transparent;
-    background: linear-gradient(180deg, rgba(23, 17, 13, .5), rgba(11, 9, 7, .18));
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(198, 164, 106, .065), transparent 55%),
+        linear-gradient(180deg, #17110D, #0D0A08 84%);
 }
 
-#photography .eyebrow {
-    margin: 0 0 .8rem;
-    color: var(--gold-soft);
-    font: 600 .72rem/1.6 var(--font);
-    letter-spacing: .1em;
+#photography .photography-heading {
+    margin-bottom: clamp(22px, 3vw, 32px);
+    padding-top: clamp(20px, 2.5vw, 30px);
+    border-top: 1px solid rgba(198, 164, 106, .38);
 }
 
 #photography h2 {
-    margin: 0 0 .75rem;
-    font: 700 clamp(2rem, 3.6vw, 3.2rem)/1.16 var(--font);
-    letter-spacing: -.02em;
+    margin: 0;
+    color: var(--text);
+    font: 700 clamp(2.5rem, 4.6vw, 3.8rem)/1.08 var(--font);
+    letter-spacing: -.04em;
 }
 
-#photography .sub {
-    margin: 0 0 1.5rem;
+#photography .photography-toolbar {
+    margin-bottom: clamp(22px, 2.5vw, 30px);
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(198, 164, 106, .18);
 }
 
 #photography .photography-filters {
+    min-width: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 0 0 .8rem;
+    gap: 8px;
+    margin: 0;
 }
 
 #photography .photography-filter {
     appearance: none;
-    min-height: 44px;
-    padding: .65rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: transparent;
-    color: var(--text);
-    font: 500 .8rem/1.4 var(--font);
+    min-height: 46px;
+    max-width: 100%;
+    padding: 11px 18px;
+    border: 1px solid rgba(198, 164, 106, .25);
+    border-radius: 999px;
+    background: rgba(245, 235, 221, .025);
+    color: var(--muted);
+    font: 500 .76rem/1.4 var(--font);
     cursor: pointer;
-    transition: color 250ms ease, border-color 250ms ease, background-color 250ms ease;
+    touch-action: manipulation;
+    transition: color 350ms ease, border-color 350ms ease, background-color 350ms ease,
+        box-shadow 350ms ease;
 }
 
 #photography .photography-filter[aria-pressed="true"] {
     border-color: var(--gold-soft);
-    background: rgba(198, 164, 106, .1);
-    color: var(--gold-hi);
+    background: var(--gold-soft);
+    color: #17110D;
+    box-shadow: 0 3px 16px rgba(198, 164, 106, .1);
 }
 
 #photography .photography-filter:focus-visible {
@@ -4357,13 +4383,8 @@ body {
     outline-offset: 3px;
 }
 
-#photography .photography-results {
-    margin: 0 0 1.5rem;
-    color: var(--muted);
-    font: 400 .75rem/1.5 var(--font);
-}
-
 #photography .photography-filters[hidden],
+#photography .photography-filter[hidden],
 #photography .photography-results[hidden],
 #photography .photography-card[hidden] {
     display: none;
@@ -4372,7 +4393,14 @@ body {
 #photography .photography-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    align-items: start;
+    gap: clamp(18px, 2.3vw, 30px);
+}
+
+#photography .photography-grid[data-photo-count="1"] {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 680px);
+    margin-inline: auto;
 }
 
 #photography .photography-card {
@@ -4381,15 +4409,23 @@ body {
     width: 100%;
     min-width: 0;
     overflow: hidden;
-    aspect-ratio: 3 / 2;
-    border: 1px solid rgba(198, 164, 106, .16);
-    border-radius: 14px;
-    background: var(--surface);
+    border: 1px solid rgba(198, 164, 106, .2);
+    border-radius: 16px;
+    background: linear-gradient(160deg, #211A14, #18120F);
+    color: var(--text);
     cursor: zoom-in;
+    touch-action: manipulation;
     transition: opacity var(--reveal-duration) var(--editorial-ease),
         translate var(--reveal-duration) var(--editorial-ease),
         border-color 500ms var(--editorial-ease), box-shadow 500ms var(--editorial-ease);
     transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms), 0ms, 0ms;
+}
+
+#photography .photography-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    background: #211A14;
 }
 
 #photography .photography-card img {
@@ -4402,25 +4438,25 @@ body {
     transition: transform 550ms var(--editorial-ease);
 }
 
-#photography .photography-card::after {
+#photography .photography-view {
     position: absolute;
-    inset: 0;
-    content: "";
-    background: linear-gradient(180deg, transparent 55%, rgba(11, 9, 7, .65));
-    opacity: .8;
+    right: 14px;
+    bottom: 14px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(224, 195, 146, .45);
+    border-radius: 50%;
+    background: rgba(13, 10, 8, .8);
+    color: var(--gold-hi);
     pointer-events: none;
-    transition: opacity 500ms var(--editorial-ease);
+    transition: border-color 450ms ease, background-color 450ms ease;
 }
 
-#photography .photography-category {
-    position: absolute;
-    z-index: 1;
-    bottom: 18px;
-    left: 20px;
-    color: var(--text);
-    font: 500 .75rem/1.4 var(--font);
-    letter-spacing: .08em;
-    pointer-events: none;
+#photography .photography-view svg {
+    width: 17px;
+    height: 17px;
 }
 
 #photography .photography-card:focus-visible {
@@ -4433,19 +4469,26 @@ body {
     #photography .photography-filter:hover {
         border-color: var(--gold-soft);
         color: var(--gold-hi);
+        background: rgba(198, 164, 106, .08);
+    }
+
+    #photography .photography-filter[aria-pressed="true"]:hover {
+        background: var(--gold-hi);
+        color: #17110D;
     }
 
     #photography .photography-card:hover {
         border-color: var(--gold-soft);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, .24);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, .22), 0 0 0 1px rgba(198, 164, 106, .07);
     }
 
     #photography .photography-card:hover img {
         transform: scale(1.04);
     }
 
-    #photography .photography-card:hover::after {
-        opacity: 1;
+    #photography .photography-card:hover .photography-view {
+        border-color: var(--gold-hi);
+        background: rgba(13, 10, 8, .95);
     }
 }
 
@@ -4457,18 +4500,131 @@ body {
 
 @media (max-width: 600px) {
     #photography .photography-filters {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
     }
 
     #photography .photography-filter {
         min-width: 0;
-        padding-inline: .75rem;
+        min-height: 44px;
+        padding-inline: 15px;
     }
 
     #photography .photography-grid {
         grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
+        gap: 22px;
+    }
+
+}
+
+/* Photobooth prints have their own gallery and retain every printed edge. */
+#photobooth {
+    position: relative;
+    isolation: isolate;
+    border-top-color: transparent;
+    background:
+        radial-gradient(ellipse at 82% 12%, rgba(198, 164, 106, .085), transparent 58%),
+        linear-gradient(180deg, #100C09, #1B140F 54%, #100C09);
+}
+
+#photobooth .photobooth-heading {
+    margin-bottom: clamp(28px, 3.5vw, 42px);
+    padding-top: clamp(20px, 2.5vw, 30px);
+    border-top: 1px solid rgba(198, 164, 106, .38);
+}
+
+#photobooth h2 {
+    margin: 0;
+    color: var(--text);
+    font: 700 clamp(2.5rem, 4.6vw, 3.8rem)/1.08 var(--font);
+    letter-spacing: -.04em;
+}
+
+#photobooth .photobooth-grid {
+    --photobooth-gap: clamp(18px, 2.3vw, 30px);
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--photobooth-gap);
+}
+
+#photobooth .photobooth-card {
+    position: relative;
+    display: block;
+    grid-column: span 2;
+    width: 100%;
+    min-width: 0;
+    padding: clamp(8px, 1vw, 12px);
+    border: 1px solid rgba(198, 164, 106, .27);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #2A2018, #17110D);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+    color: var(--text);
+    cursor: zoom-in;
+    touch-action: manipulation;
+    transition: opacity var(--reveal-duration) var(--editorial-ease),
+        translate var(--reveal-duration) var(--editorial-ease),
+        border-color 500ms var(--editorial-ease), box-shadow 500ms var(--editorial-ease);
+    transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms), 0ms, 0ms;
+}
+
+#photobooth .photobooth-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+#photobooth .photobooth-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+#photobooth .photobooth-image {
+    background: #0D0A08;
+}
+
+#photobooth .photobooth-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#photobooth .photobooth-card:focus-visible {
+    border-color: var(--gold-hi);
+    outline: 2px solid var(--gold-hi);
+    outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #photobooth .photobooth-card:hover {
+        border-color: var(--gold-soft);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(198, 164, 106, .07);
+    }
+}
+
+@media (max-width: 1000px) {
+    #photobooth .photobooth-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #photobooth .photobooth-card,
+    #photobooth .photobooth-card:nth-child(4) {
+        grid-column: auto;
+    }
+
+    #photobooth .photobooth-card:nth-child(5) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - var(--photobooth-gap)) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    #photobooth .photobooth-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    #photobooth .photobooth-card:nth-child(5) {
+        grid-column: auto;
+        width: 100%;
     }
 }
 
@@ -4490,7 +4646,7 @@ body {
     overflow: hidden;
     overscroll-behavior: contain;
     border: 0;
-    background: #0B0907;
+    background: radial-gradient(ellipse at 50% 0%, #211911, #0B0907 70%);
     color: var(--text);
 }
 
@@ -4509,11 +4665,13 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(198, 164, 106, .2);
 }
 
 .photography-lightbox-header h2 {
     margin: 0;
-    font: 700 clamp(1.15rem, 2vw, 1.5rem)/1.25 var(--font);
+    font: 500 clamp(1rem, 2vw, 1.35rem)/1.4 var(--font);
 }
 
 .photography-lightbox button {
@@ -4525,12 +4683,13 @@ body {
     min-height: 48px;
     padding: 8px 12px;
     border: 1px solid rgba(198, 164, 106, .3);
-    border-radius: 8px;
-    background: var(--surface);
+    border-radius: 999px;
+    background: rgba(245, 235, 221, .03);
     color: var(--gold-hi);
     font: 500 .85rem/1.2 var(--font);
     cursor: pointer;
-    transition: border-color 180ms ease, background-color 180ms ease;
+    touch-action: manipulation;
+    transition: border-color 350ms ease, background-color 350ms ease;
 }
 
 .photography-lightbox button:focus-visible {
@@ -4565,6 +4724,7 @@ body {
     min-width: 0;
     min-height: 0;
     object-fit: contain;
+    border-radius: 4px;
 }
 
 .photography-lightbox-image[hidden],
@@ -4608,8 +4768,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
     #photography .photography-card,
     #photography .photography-card img,
-    #photography .photography-card::after,
+    #photography .photography-view,
     #photography .photography-filter,
+    #photobooth .photobooth-card,
     .photography-lightbox button {
         transition: none !important;
     }
