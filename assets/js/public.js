@@ -10,6 +10,7 @@
   var branding=overlay&&overlay.querySelector('.site-intro-branding');
   var instruction=overlay&&overlay.querySelector('.site-intro-instruction');
   var motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var mobile=window.matchMedia('(max-width: 600px)');
   var stallTimer=0, transitionTimer=0, lastProgress=0, playAttempt=0;
   var finished=false, hidden=false;
   var awaitingGesture=false;
@@ -148,7 +149,7 @@
 
   state.dismiss=function(){finish(true,true);};
   window.clearTimeout(state.readyTimer);
-  if(!overlay||!video||!source||motion.matches){finish(true,false);return;}
+  if(!overlay||!video||!source||motion.matches||mobile.matches){finish(true,false);return;}
 
   try{
     overlay.hidden=false;
@@ -192,6 +193,12 @@
       else watchProgress();
     });
     listen(window,'pagehide',function(){finish(true,true);});
+    if(mobile.addEventListener) listen(mobile,'change',function(){if(mobile.matches) finish(true,false);});
+    else if(mobile.addListener){
+      var onMobileChange=function(){if(mobile.matches) finish(true,false);};
+      mobile.addListener(onMobileChange);
+      listeners.push(function(){mobile.removeListener(onMobileChange);});
+    }
     if(motion.addEventListener) listen(motion,'change',function(){if(motion.matches) finish(true,false);});
     else if(motion.addListener){
       var onMotionChange=function(){if(motion.matches) finish(true,false);};
